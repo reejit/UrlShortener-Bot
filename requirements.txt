@@ -1,0 +1,4 @@
+aiogram==2.8
+emoji==0.5.4
+httpx==0.13.2
+qrcode[pil]==6.1
