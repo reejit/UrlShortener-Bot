@@ -27,6 +27,14 @@ async def send_welcome(message: types.Message):
     await message.answer(ResponseMsgs.HELP)
 
 
+@dp.message_handler(commands=['about', 'contact'])
+async def send_contact_details(message: types.Message):
+    """
+    This handler will be called when user sends `/about` or `/contact` command
+    """
+    await message.answer(ResponseMsgs.CONTACT)
+
+
 @dp.message_handler()
 async def shorten_url(message: types.Message):
     """
