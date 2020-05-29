@@ -6,7 +6,7 @@ from aiogram import Bot, Dispatcher, executor, types
 
 from url_shorteners import TinyUrlShortener
 from response_msgs import ResponseMsgs
-from config import BotConfig
+from config import BotConfig, WebAppConfig
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -17,6 +17,20 @@ dp = Dispatcher(bot)
 
 # Setup url shortener
 url_shortener = TinyUrlShortener()
+
+
+async def on_startup(dp):
+    """
+    Called on bot startup.
+    """
+    await bot.set_webhook(BotConfig.WEBHOOK_URL)
+
+
+async def on_shutdown(dp):
+    """
+    Called on bot shutdown.
+    """
+    await bot.delete_webhook()
 
 
 @dp.message_handler(commands=['start', 'help'])
@@ -76,4 +90,5 @@ async def send_qr(callback_query: types.CallbackQuery):
 
 
 if __name__ == '__main__':
-    executor.start_polling(dp, skip_updates=True)
+    executor.start_webhook(dp, '/', on_startup=on_startup, on_shutdown=on_shutdown, host='0.0.0.0',
+                           port=WebAppConfig.PORT)
