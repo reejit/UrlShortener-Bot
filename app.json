@@ -1,0 +1,31 @@
+{
+  "name": "Livegrm",
+  "description": "Notng",
+  "env": {
+    "WEBHOOK_URL": {
+      "description": "Get this value from my.telegram.org.",
+      "required": true
+    },
+    "API_TOKEN": {
+      "description": "Get this value from my.telegram.org.",
+      "required": true
+    },
+    "TOKEN": {
+      "description": "",
+      "required": true
+    },
+    "SUDO_USERS": {
+      "description": "1229057875",
+      "value": true
+    },
+    "CHAT_ID": {
+      "description": "-1001325620856",
+      "value": true
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+   ]
+}
