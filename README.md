@@ -1,6 +1,7 @@
 # UrlShortener Bot
 
 This is a simple chatbot for telegram, which helps to shorten urls.
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/reejit/UrlShortener-Bot)
 
 Used URL shortening services:
 * [TinyURL](https://tinyurl.com)
